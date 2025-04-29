@@ -1,0 +1,50 @@
+REVIEW TEXT:
+I haven't received it yet. I have been waiting. This usually arrives on time and is a godsend, because when my cat runs out --oh, it's awful!! Guess I have to run to the store.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 1
+-------------------------------------------
+REVIEW TEXT:
+What happened to dijon mustard vinaigrette? Once upon a time Delouis Fils made  a delicious and authentic dijon mustard vinaigrette.  I discovered its merits when I purchased the product at Whole Foods.  But Whole Foods stopped stocking it, so I went online to search it out.  The first time I was able to buy the same product.  This time, much to my dismay, I ordered a totally different product although the name is the same.  The new dijon mustard vinaigrette is no more French or authentic than any Kraft product.  It is glutenous and slightly sweet and--to make a long story short--I threw both bottles out.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 1
+-------------------------------------------
+REVIEW TEXT:
+Castor & Pollux dog cookies These are great cookies. My dog, Kacey loves them. It must be the peanut butter. This deal beats any price per bag that I have seen. The auto ship is great also.
+REAL SENTIMENT SCORE: 3
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+Great tea My husband's favorite loose green tea.  He drinks every morning, and it is a little better price than from Stash.
+REAL SENTIMENT SCORE: 2
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+coffee Its about time some one came up with a viable alternative to the more expensive coffee single cup brewers. this is a great product, its not Star bucks, but it works.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 4
+-------------------------------------------
+REVIEW TEXT:
+My dog loves it!  This may be a little pricey, but it's good. My dog is old and has cancer.  He loves this food.  I tried to do regular raw meat, and he is ok with some<br />raw beef but when he eats this Addiction, I know he is getting his vitamins and minerals.  He just loves it!<br />He keeps licking his bowl, even after it is all gone!
+REAL SENTIMENT SCORE: 4
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+Mesquite BBQ These chips are the best!! I've tried some of the other flavors and they are ok, nothing special... but the Mesquite BBQ is hands down the best BBQ chips I've ever had! if you like BBQ chips (and are not concerned with the calories most chips bring), then you will not be disappointed in these!
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+Very good value! It's been two weeks since I began bulk aging this Barolo kit and I am impressed so far.  The wine, even at this early stage is very drinkable, and has a beautiful, deep red color.  My only regret is having stabilized it before doing a malolactic fermentation, but I will do that on the next one.<br /><br />I took reviewer Duane's advice and used BM 4X4 yeast which I was able to buy in 30 gram packages from Fermentation Solutions in Campbell, Ca.  I also made this kit to 5.5 gallons and added 1 1/2 lbs of Zante currants (available on Amazon) for body.<br /><br />Though I have two much more expensive Winexpert kits going, I expect I'll be drinking this Barolo as my table wine while the other more expensive kits age.  You won't go wrong buying this kit, and with a few tweaks you'll have a very nice table wine for under 2 bucks a bottle.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 4
+-------------------------------------------
+REVIEW TEXT:
+Delish Very good tea. I tried several other brands of Earl Grey, but this is definitely my favorite.
+REAL SENTIMENT SCORE: 4
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+I love this thing The wine saver is great in so many ways. Obviously it's wonderful to be able to open a bottle of wine and have it stay good for a day or two, especially if you just like one glass with dinner. This lets you open up and enjoy more expensive wine since you won't waste the whole rest of the bottle. If you are interested in learning about wines, you'll probably want to open up 2 or more wines at a time to compare them, and this way you won't waste anything. The wine saver will keep the undrunk portion until the next time.  I do recommend putting the bottle in the fridge if you don't drink it the next day. Just pull the bottle out an hour before you want to drink it if it's red.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
