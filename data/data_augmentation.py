@@ -25,7 +25,7 @@ def build_augmentation_plan(data_df:pd.DataFrame, frequency_quantile:float, labe
 
 
 class DataAugmenter:
-    def __init__(self, data_df:pd.DataFrame, frequency_quantile:float):
+    def __init__(self, data_df:pd.DataFrame, frequency_quantile:float, device:str="cpu"):
         self.data_df = data_df
         self.data_df["source"] = "original"
         self.frequency_quantile = frequency_quantile
@@ -33,6 +33,7 @@ class DataAugmenter:
         self.augmenters = None 
         self.augmenters_names = None
         self.augmenters_weights = None
+        self.device = device
         self.initialize_augmenters()
     
     def initialize_augmenters(self):
@@ -45,13 +46,15 @@ class DataAugmenter:
             model_path='bert-base-uncased',
             action='substitute',
             aug_min=5,
-            aug_max=20
+            aug_max=20, 
+            device=self.device
         )
         aug_insert = naw.ContextualWordEmbsAug(
             model_path='bert-base-uncased',
             action='insert',
             aug_min=2,
             aug_max=10,
+            device=self.device
         )
         aug_gpt = OpenAIAugmenter()
         self.augmenters = {
