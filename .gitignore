@@ -1,0 +1,7 @@
+__pycache__/
+.seznam/
+*.ipynb_checkpoints
+outputs/
+data/raw/
+models/
+.env
