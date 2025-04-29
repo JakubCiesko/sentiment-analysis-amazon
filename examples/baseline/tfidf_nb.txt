@@ -1,0 +1,50 @@
+REVIEW TEXT:
+Definitely NOT Espresso! This is absolutely the worst coffee I've ever had! I was expecting a dark, full flavored, bold coffee - AN ESPRESSO! Instead what I got was the equivalent of a supermarket, off the shelf, canned coffee. You know the type, weak, no flavor, stale, so thin you can see through it. If you like supermarket, canned coffee then this is for you. If  you're looking for an Espresso, Stay Away! This isn't it.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 1
+-------------------------------------------
+REVIEW TEXT:
+Great Product This product works great for an alertness boost.  There is no sugar rush.  Just a little caffeine and B vitamins.  No crash either. I would recommend this product to everyone.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+rewarding self I have used this product for at least 3 yrs.  When both stores in my town that carry it were out for over a month I went looking and found such a fantastic price I went ahead and purchased 2 bottles at a time.  It makes both my coffee and tea a treat--especially while I'm trying to loose weight.  It is so good I keep about 4 flavors on hand all the time along with the plain liquid.
+REAL SENTIMENT SCORE: 3
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+This stuff is Great!!! From the amount of this stuff I order, the folks at Amazon must think I'm a serious alcoholic.  Truth is, I drink this because it's an extremely tasty Tomato Juice Cocktail!  No alcohol necessary.  Much tastier than V-8.  Try it!  You could even add alcohol, if it pleases you.
+REAL SENTIMENT SCORE: 2
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+These smell great, and my dog says they taste good. I'm always looking for new dog treats to keep my beagle-daschund and black lab spoiled. And although they aren't very picky about taste, I am picky about ingredients.<br /><br />The Fruitables Pumpkin and Apple treats smell great. The ingredients are simple, they're made in the USA, they contain no animal products or by-products (though that's not true for all of the treats from this company), and they don't contain many of the common allergens found in dog treats (wheat, soy, corn).<br /><br />Be aware that these treats are small (a little too small for my 90-lb lab who doesn't even realize he has eaten something when he gets one of these). And they're hard (my beagle-daschund crunches through them with a little work, but a very small dog might not be able to eat these).<br /><br />Overall, a good treat! I think the best dog treat so far, however, is The Lazy Dog Cookie Co Inc Coconut Carob Chip Pup-squeaks, which are unfortunately out-of-stock right now on Amazon. The Fruitable treats are a close second.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+Great food, but... ...lousy packaging/storage.  While the food itself is wonderful and the cat loves it, Amazon really made a mess of my order.  When the cans were opened, the contents had separated into solid and liquid.  We tried to mix it together again, but the cat refused it.  I email the company and sent a picture along and they said it had been subjected to extreme heat and had cooked in the can.  It wasn't hot locally, so I believe it happened while in Amazon's hands.  Additionally, Amazon has been less then helpful in processing the return.<br /><br />So, buy the food for your cat if it likes it, but just not from Amazon.  Get it from a company that handles food products regularly; they probably know a lot more about keeping products edible.
+REAL SENTIMENT SCORE: 4
+PREDICTED SENTIMENT SCORE: 1
+-------------------------------------------
+REVIEW TEXT:
+dogfood umame Our adopted Jack Russells have had eating problems related to going from junk food to organic,  We grind this product and the liver "terriyaki" in a coffee grinder and sprinkle it over their pellets to get them started.  Works every time.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+2 stars for a 20% product My dogs eat just about anything, but only 1 of 5 would eat these.  He was very happy with them, but the others gave them a lick or a nibble, then walked away.  Maybe on another day, the results might have been different, but that is what happened.  Perhaps if the peanut butter scent were stronger?  Who knows?
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+The best jelly beans in the world!! I got my David's Signature Beyond Gourmet Jelly Beans Fruit Mix they are the most amazing jelly beans I have ever had in my life!! David has really out done himself this time I am in love with them I can't stop eating them. I gave a few to some friends and now they are huge fans as well! I will be ordering more of them real soon!! Welcome back to the jelly bean business David it was worth the wait!!
+REAL SENTIMENT SCORE: 4
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
+REVIEW TEXT:
+Senseo is sensational The best coffee product at the best price with the convenience of timely automatic shipments.
+REAL SENTIMENT SCORE: 5
+PREDICTED SENTIMENT SCORE: 5
+-------------------------------------------
