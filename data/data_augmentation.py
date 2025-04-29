@@ -88,21 +88,21 @@ class DataAugmenter:
                 conditions &= (self.data_df[col] == row[col])
             matching_rows = self.data_df[conditions]
         
-        n = int(row['augmentations_needed'])
-        sample_rows = matching_rows.sample(n=n, replace=(n > len(matching_rows)), random_state=42)
-        for _, sample_row in tqdm(sample_rows.iterrows(), desc='Augmenting rows', total=len(sample_rows)) :
-            original_text = sample_row['text']
-            original_summary = sample_row['summary']
-            augmented_texts = self.augment_text(original_text)
-            augmented_summaries = self.augment_text(original_summary)
-            for (aug_text_name, new_text), (aug_summary_name, new_summary) in zip(augmented_texts, augmented_summaries):
-                new_row = sample_row.copy()
-                new_row['text'] = new_text
-                new_row['summary'] = new_summary
-                new_row['source'] = 'augmentation'
-                new_row['augmentation_used_text'] = aug_text_name
-                new_row['augmentation_used_summary'] = aug_summary_name
-                augmented_rows.append(new_row)
+            n = int(row['augmentations_needed'])
+            sample_rows = matching_rows.sample(n=n, replace=(n > len(matching_rows)), random_state=42)
+            for _, sample_row in tqdm(sample_rows.iterrows(), desc='Augmenting rows', total=len(sample_rows)) :
+                original_text = sample_row['text']
+                original_summary = sample_row['summary']
+                augmented_texts = self.augment_text(original_text)
+                augmented_summaries = self.augment_text(original_summary)
+                for (aug_text_name, new_text), (aug_summary_name, new_summary) in zip(augmented_texts, augmented_summaries):
+                    new_row = sample_row.copy()
+                    new_row['text'] = new_text
+                    new_row['summary'] = new_summary
+                    new_row['source'] = 'augmentation'
+                    new_row['augmentation_used_text'] = aug_text_name
+                    new_row['augmentation_used_summary'] = aug_summary_name
+                    augmented_rows.append(new_row)
         logger.info("Done augmenting")
         augmented_df = pd.DataFrame(augmented_rows, columns=self.data_df.columns.tolist() + ['augmentation_used_text', 'augmentation_used_summary'])
         if save: 
