@@ -13,6 +13,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def download(url: str, path: str, force_download: bool = False):
+    """Downloads a file from a URL to a specified local path, unless it already exists."""
     logger.info(f"Downloading from {url}...")
     if os.path.exists(path) and not force_download:
         logger.info(f"{path} already exists. Skipping download.")
@@ -26,6 +27,7 @@ def download(url: str, path: str, force_download: bool = False):
     logger.info(f"Downloaded to {path}")
 
 def extract(src_path: str, dst_path: str, force_extract: bool = False):
+    """Extracts a .gz compressed file to a destination path, unless already extracted."""
     logger.info("Extracting...")
     if os.path.exists(dst_path) and not force_extract:
         logger.info(f"{dst_path} already exists. Skipping extraction.")

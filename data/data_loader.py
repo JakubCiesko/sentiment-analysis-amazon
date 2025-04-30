@@ -11,17 +11,22 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class DataLoader:
+    """Loads and parses a structured text dataset into a pandas DataFrame."""
     def __init__(self, path:str=""):
+        """Initializes the DataLoader with an optional file path."""
         logger.info(f"Initializing dataloader...")
         self.__path = path 
     
     def set_path(self, path:str):
+        """Sets or updates the path to the dataset file."""
         self.__path = path 
     
     def get_path(self) -> str: 
+        """Returns the path to the dataset file."""
         return self.__path
 
     def load(self, max_reviews:int=None) -> pd.DataFrame:
+        """Loads the dataset from file, parses reviews, and returns a DataFrame. Return max_reviews number of rows or all rows."""
         dataset_path = self.get_path()
         if not os.path.exists(dataset_path):
             logger.error(f"Wrong dataset path {dataset_path}")
@@ -34,6 +39,7 @@ class DataLoader:
         return data
 
     def _parse_dataset(self, file_path:str, max_reviews:int=None) -> list[dict]:
+        """Parses the raw dataset file into a list of review dictionaries, optionally limiting the number of reviews."""
         reviews = []
         review = {}
         with open(file_path, mode='r', encoding='iso-8859-1', errors='replace') as f:
@@ -57,4 +63,5 @@ class DataLoader:
         return reviews
     
     def _polish_column_names(self, columns: list[str]) -> list[str]:
+        """Cleans up column names by removing leading text up to and including the first '/' character."""
         return [col[col.find("/")+1:] for col in columns]

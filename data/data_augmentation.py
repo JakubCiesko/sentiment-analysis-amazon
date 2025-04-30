@@ -16,16 +16,19 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def build_augmentation_plan(data_df:pd.DataFrame, frequency_quantile:float, labels:list[str]) -> pd.DataFrame:
-  label_pair_counts = data_df[labels].value_counts()
-  frequency_threshold = label_pair_counts.quantile(frequency_quantile)
-  augmentation_needs = (frequency_threshold - label_pair_counts).clip(lower=0).astype(int)
-  augmentation_plan_df = augmentation_needs.reset_index()
-  augmentation_plan_df.columns = labels + ['augmentations_needed']
-  return augmentation_plan_df[augmentation_plan_df['augmentations_needed'] > 0]
+    """Creates a plan to augment underrepresented label combinations based on a quantile threshold."""
+    label_pair_counts = data_df[labels].value_counts()
+    frequency_threshold = label_pair_counts.quantile(frequency_quantile)
+    augmentation_needs = (frequency_threshold - label_pair_counts).clip(lower=0).astype(int)
+    augmentation_plan_df = augmentation_needs.reset_index()
+    augmentation_plan_df.columns = labels + ['augmentations_needed']
+    return augmentation_plan_df[augmentation_plan_df['augmentations_needed'] > 0]
 
 
 class DataAugmenter:
+    """Handles data augmentation using a variety of NLP augmenters for balancing datasets."""
     def __init__(self, data_df:pd.DataFrame, frequency_quantile:float, device:str="cpu"):
+        """Initializes the augmenter with the dataset, quantile threshold, and device setting."""
         self.data_df = data_df
         self.data_df["source"] = "original"
         self.frequency_quantile = frequency_quantile
@@ -37,6 +40,7 @@ class DataAugmenter:
         self.initialize_augmenters()
     
     def initialize_augmenters(self):
+        """Initializes a set of word and contextual augmenters, including OpenAI-based augmentation."""
         logger.info("Initializing augmenters")
         nltk.download('averaged_perceptron_tagger_eng')
         aug_wordnet = naw.SynonymAug(aug_src='wordnet')
@@ -69,16 +73,19 @@ class DataAugmenter:
         self.augmenters_weights = [2/11] * 5 + [1/11]
     
     def assign_augmenters_weights(self, weights: list[float]):
+       """Assigns custom weights to each augmenter for probabilistic selection during augmentation."""
        assert sum(weights) == 1.0, "Not a probability distribution sum(w) != 1"
        self.augmenters_weights = weights
 
     def prepare_augmentation_plan(self, label_columns: list[str]) -> pd.DataFrame:
+       """Generates and stores an augmentation plan based on label frequency imbalance."""
        augmentation_plan = build_augmentation_plan(self.data_df, self.frequency_quantile, label_columns)
        self.augmentation_plan = augmentation_plan
        self.label_columns = label_columns
        return augmentation_plan
     
     def augment(self, output_prefix:str="", save_dir:str="data/augmented", save:bool=True) -> pd.DataFrame:
+        """Applies augmentations based on the plan, optionally saving augmented and merged datasets."""
         if self.augmentation_plan is None or self.label_columns is None:
             raise ValueError("You must run prepare_augmentation_plan() first.")
         augmented_rows = []
@@ -117,7 +124,8 @@ class DataAugmenter:
             logger.info(f"Saved merged data to {path_merged}")
         return augmented_df
 
-    def augment_text(self, text, num_aug=1):
+    def augment_text(self, text:str, num_aug:int=1) -> list[(str, str)]:
+        """Applies a randomly chosen augmenter to a given text and returns augmented results."""
         results = []
         augmenter_names = random.choices(self.augmenters_names, self.augmenters_weights, k=num_aug)
         for aug_name in augmenter_names:
@@ -132,29 +140,35 @@ class DataAugmenter:
 
 
 class OpenAIAugmenter:
-  def __init__(self):
-    logger.info("Initiliazing OpenAI Augmenter with default prompt. Make sure to provide api key as env var!")
-    api_key = os.getenv("OPENAI_API_KEY", "SECRET-API-KEY") 
-    self.client = OpenAI(api_key=api_key)
-    self.async_client = AsyncOpenAI(api_key=api_key)
-    self.augment_prompt = (
-    "Paraphrase the following product title or text related to food hazards to generate a new training example. "
-    "Maintain the original meaning and topic, but vary the wording naturally. Return the final text only:\n\n\"{}\""
-    )
+    """Uses OpenAI's API to generate paraphrased text based on a configurable prompt."""
+    def __init__(self):
+        """Initializes OpenAI client with a default prompt for food hazard-related text augmentation."""
+        logger.info("Initiliazing OpenAI Augmenter with default prompt. Make sure to provide api key as env var!")
+        api_key = os.getenv("OPENAI_API_KEY", "SECRET-API-KEY") 
+        self.client = OpenAI(api_key=api_key)
+        self.async_client = AsyncOpenAI(api_key=api_key)
+        self.augment_prompt = (
+        "Paraphrase the following text related to fine food to generate a new training example. "
+        "Maintain the original meaning and topic, but vary the wording naturally. Return the final text only:\n\n\"{}\""
+        )
 
-  def set_augment_prompt(self, prompt:str):
-    self.augment_prompt = prompt
+    def set_augment_prompt(self, prompt:str):
+        """Sets a custom prompt for text augmentation using OpenAI."""
+        self.augment_prompt = prompt
 
-  def get_augment_prompt(self) -> str:
-    return self.augment_prompt
+    def get_augment_prompt(self) -> str:
+        """Returns the current augmentation prompt used for OpenAI generation."""
+        return self.augment_prompt
 
-  def get_response(self, prompt):
-    response = self.client.responses.create(
-        model="gpt-4o",
-        input=prompt
-    )
-    return response.output[0].content[0].text
+    def get_response(self, prompt:str) -> str:
+        """Sends the prompt to OpenAI's API and returns the generated text response."""
+        response = self.client.responses.create(
+            model="gpt-4o",
+            input=prompt
+        )
+        return response.output[0].content[0].text
 
-  def augment(self, text):
-    prompt = self.get_augment_prompt().format(text)
-    return self.get_response(prompt)
+    def augment(self, text: str) -> str:
+        """Formats the prompt with input text and returns the paraphrased result from OpenAI."""
+        prompt = self.get_augment_prompt().format(text)
+        return self.get_response(prompt)

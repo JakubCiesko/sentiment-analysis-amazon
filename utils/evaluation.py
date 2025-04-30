@@ -9,6 +9,15 @@ from sklearn.metrics import (
 )
 
 def evaluate_model(y_true, y_pred, metrics:dict[str,list], reports:list[str|dict]):
+    """
+    Evaluate classification predictions and update metric and report containers.
+
+    Args:
+        y_true: Ground truth labels.
+        y_pred: Predicted labels.
+        metrics: Dictionary to store evaluation metrics (accuracy, RMSE, f1).
+        reports: List to store the classification report (as dict).
+    """
     acc = accuracy_score(y_true, y_pred)
     rmse = root_mean_squared_error(y_true, y_pred)
     f1_macro = f1_score(y_true, y_pred, average="macro")
@@ -23,6 +32,14 @@ def evaluate_model(y_true, y_pred, metrics:dict[str,list], reports:list[str|dict
     reports.append(report)
 
 def plot_confusion_matrix(y_true, y_pred, title="Confusion Matrix"):
+    """
+    Plot a confusion matrix heatmap from true and predicted labels.
+
+    Args:
+        y_true: Ground truth labels.
+        y_pred: Predicted labels.
+        title: Title of the plot.
+    """
     cm = confusion_matrix(y_true, y_pred)
     plt.figure(figsize=(6,5))
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
